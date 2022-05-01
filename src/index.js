@@ -31,44 +31,24 @@ function BookList() {
         img={firstBook.img}
         title={firstBook.text}
         author={firstBook.authorName}
-      />
+      >
+        //How we can access this paragraph. 27. Props-Children
+        <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+          
+        Officia quo nostrum quia aut distinctio perspiciatis repellat 
 
-<Book
-        img={firstBook.img}
-        title={firstBook.text}
-        author={firstBook.authorName}
-      />
+        possimus eaque? Laboriosam facere ab eum quae! Tempora officia 
+        
+        eum numquam reiciendis. Asperiores, sequi!   
+        </p>  
 
-<Book
-        img={firstBook.img}
-        title={firstBook.text}
-        author={firstBook.authorName}
-      />
+      </Book>
 
-<Book
-        img={firstBook.img}
-        title={firstBook.text}
-        author={firstBook.authorName}
-      />
-
-<Book
-        img={firstBook.img}
-        title={firstBook.text}
-        author={firstBook.authorName}
-      />
-
-
-<Book
-        img={firstBook.img}
-        title={firstBook.text}
-        author={firstBook.authorName}
-      />
-
-
-<Book
-        img={firstBook.img}
-        title={firstBook.text}
-        author={firstBook.authorName}
+    <Book
+        img={secondBook.img}
+        title={secondBook.text}
+        author={secondBook.authorName}
       />
   
     </section>
@@ -77,12 +57,30 @@ function BookList() {
 
 const Book = (props) => {
   console.log(props);
+// const {img,title,author,children} = props; //26. Props - Destructuring
+  
+  const {img,title,author} = props;
+  // Note we can destructure code in --------> const Book = ({img,title,author}) like this                                              
   return (
+
+    // <article className="book">
+    //   <img src={props.img}></img>
+    //   <h1>{props.title}</h1>
+    //   <h4>{props.author}</h4>
+    // </article>
+
+    //26. Props - Destructuring
+
     <article className="book">
-      <img src={props.img}></img>
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
+      <img src={img}></img>
+      <h1>{title}</h1>
+      <h4>{author}</h4>
+      {/* {children} */}
+      {props.children}
+
     </article>
+
+
   );
 };
 
@@ -91,3 +89,8 @@ const Book = (props) => {
 // Deprecation notice: ReactDOM.render is no longer supported in React 18
 
 createRoot(document.getElementById("root")).render(<BookList />); //For React 18 Version
+
+
+
+
+
